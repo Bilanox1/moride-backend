@@ -5,11 +5,12 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
    app.enableCors({
-    origin: "*", // السماح بالوصول من أي مصدر
-    methods: 'GET,POST,PUT,DELETE', // السماح بالطرق التالية
-    allowedHeaders: 'Content-Type, Authorization', // السماح بالرؤوس هذه
-    credentials: true, // تفعيل الدعم للكوكيز أو البيانات الحساسة
-  });
+  origin: ['http://localhost:5173'], // السماح بالوصول فقط من هذا المصدر
+  methods: 'GET,POST,PUT,DELETE',
+  allowedHeaders: 'Content-Type, Authorization',
+  credentials: true, // يجب أن يكون هذا true فقط إذا كنت تستخدم الكوكيز أو البيانات الحساسة
+});
+
   
   app.useGlobalPipes(
     new ValidationPipe({
