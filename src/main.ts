@@ -4,13 +4,13 @@ import { ValidationPipe } from '@nestjs/common';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
-  app.enableCors({
-    origin: "*",
-    methods: 'GET,POST,PUT,DELETE',
-    allowedHeaders: 'Content-Type, Authorization',
-    credentials: true, // This should be true only if cookies or credentials are sent
+   app.enableCors({
+    origin: "*", // السماح بالوصول من أي مصدر
+    methods: 'GET,POST,PUT,DELETE', // السماح بالطرق التالية
+    allowedHeaders: 'Content-Type, Authorization', // السماح بالرؤوس هذه
+    credentials: true, // تفعيل الدعم للكوكيز أو البيانات الحساسة
   });
-
+  
   app.useGlobalPipes(
     new ValidationPipe({
       transform: true,
