@@ -12,6 +12,13 @@ import { CarModule } from './car/car.module';
 @Module({
   imports: [
     
+    ConfigModule.forRoot({ isGlobal: true, envFilePath: '.env' }),
+    DatabaseModule,
+    AuthModule,
+    MailModule,
+    ProfileModule,
+    DriverModule,
+    CarModule,
   ],
   controllers: [AppController],
   providers: [AppService],
