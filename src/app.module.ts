@@ -15,7 +15,6 @@ import { CarModule } from './car/car.module';
     ConfigModule.forRoot({ isGlobal: true, envFilePath: '.env' }),
     DatabaseModule,
     AuthModule,
-    MailModule,
     ProfileModule,
     DriverModule,
     CarModule,
